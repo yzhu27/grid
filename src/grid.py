@@ -389,6 +389,11 @@ def show(node, what, cols, nPlaces, lvl:int=None):
         if 'right' in node:
             show(node['right'], what, cols, nPlaces, lvl+1)
 
+def dofile(file):
+    #TODO: use regex to transfer the json in repgrid1.csv to a dict
+    raise NotImplemented
+
+
 
 ## Numerics 
 
@@ -473,6 +478,8 @@ def last(t):
 
 def copy(t):
     #TODO
+    import copy
+    return copy.deepcopy(t) # not sure if it works
     raise NotImplementedError()
 
 
@@ -651,7 +658,7 @@ if __name__=='__main__':
     eg("repcols","checking repcols", repColsfun)
 
     def synonymsfun():
-        show(repCols( dofile(the.file).cols ):cluster())
+        show(repCols( dofile(the.file).cols ).cluster())
     eg("synonyms","checking repcols cluster", synonymsfun)
 
     def reprowsfun():
