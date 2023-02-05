@@ -624,8 +624,9 @@ if __name__=='__main__':
     eg("the","show settings", thefun)
 
     def copyfun():
-        #TODO
-        raise NotImplementedError()
+        t1={'a':1,'b':{'c':2,'d':{0:3}}}
+        t2 = copy(t1)
+        t2['b']['d'][0]=10000
     eg("copy","check copy", copyfun)
 
 
@@ -644,28 +645,33 @@ if __name__=='__main__':
     eg("num", "check nums", numfun)
     
     def repColsfun():
-        #TODO
-        raise NotImplementedError()
+        t = repCols(dofile(the.file).cols)
+        map(t.cols.all,oo) 
+        map(t.rows,oo) 
     eg("repcols","checking repcols", repColsfun)
 
     def synonymsfun():
-        #TODO
-        raise NotImplementedError()
+        show(repCols( dofile(the.file).cols ):cluster())
     eg("synonyms","checking repcols cluster", synonymsfun)
 
     def reprowsfun():
-        #TODO
-        raise NotImplementedError()
+        t = dofile(the.file)
+        rows = repRows(t, transpose(t.cols))
+        map(rows.cols.all,oo) 
+        map(rows.rows,oo) 
     eg("reprows","checking reprows", reprowsfun)
 
     def prototypesfun():
-        #TODO
-        raise NotImplementedError()
+        t = dofile(the.file)
+        rows = repRows(t, transpose(t.cols))
+        show(rows.cluster())
     eg("prototypes","checking reprows cluster", prototypesfun)
 
     def positionfun():
-        #TODO
-        raise NotImplementedError()
+        t = dofile(the.file)
+        rows = repRows(t, transpose(t.cols))
+        rows.cluster()
+        repPlace(rows)
     eg("position","where's wally", positionfun)
 
     def everyfun():
