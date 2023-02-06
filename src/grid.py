@@ -358,16 +358,15 @@ class DATA:
 ## Misc
 
 def transpose(t):
-    u = {}
+    u = [[0]*len(t) for _ in range(len(t[0]))]
     for i in range(len(t[0])):
-        u[i] = {}
         for j in range(len(t)):
             u[i][j] = t[j][i]
     return u
 
 def repCols(cols:list):
-    cols = copy(cols)
-    for _ , col in cols.values():
+    newcols = copy(cols)
+    for col in newcols:
         col[-1] = col[0] + col[-1]
         col.pop(0)
     header = []
@@ -375,16 +374,29 @@ def repCols(cols:list):
         id = i + 1
         header.append('Num' + id)
     header[-1] = "thingX"
-    cols.insert(0 , header)
+    newcols.insert(0 , header)
     with open('../etc/data/cols.csv' , 'w' , encoding='UTF8' , newline='') as f:
         writer = csv.writer(f)
-        writer.writerows(cols)
+        writer.writerows(newcols)
     return DATA('../etc/data/cols.csv')
 
 
-def repRows(t, rows):
-    #TODO
-    raise NotImplementedError()
+def repRows(t, rows): #rows = cols.transpose
+    rows = copy(rows)
+    for j , s in enumerate(rows[-1]):
+        rows[0][j] = rows[0][j] + ':' + s
+    rows[-1] = None
+    for n , row in enumerate(rows):
+        if n == 0:
+            row.append('thingX')
+        else:
+            u = t['rows'][len(t['rows']) - n + 2]
+            row.append(u[-1])
+    with open('../etc/data/rows.csv' , 'w' , encoding='UTF8' , newline='') as f:
+        writer = csv.writer(f)
+        writer.writerows(rows)
+    return DATA('../etc/data/rows.csv') 
+
 
 def repPlace(data):
     #TODO
