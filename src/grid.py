@@ -349,20 +349,38 @@ class DATA:
             node['left'] = self.sway(rows=left , min=min , cols=cols , above=node['A'])
         return node
 
-    def furthest(i, row1, rows,cols):
-      # TODO
-      raise NotImplementedError()
+    def furthest(self, row1, rows, *cols):
+        t = self.around(row1 , rows , cols)
+        return t[-1]
+
 
        
 ## Misc
 
 def transpose(t):
-    #TODO
-    raise NotImplementedError()
+    u = {}
+    for i in range(len(t[0])):
+        u[i] = {}
+        for j in range(len(t)):
+            u[i][j] = t[j][i]
+    return u
 
-def repCols(cols):
-    #TODO
-    raise NotImplementedError()
+def repCols(cols:list):
+    cols = copy(cols)
+    for _ , col in cols.values():
+        col[-1] = col[0] + col[-1]
+        col.pop(0)
+    header = []
+    for i in range(len(cols[0])):
+        id = i + 1
+        header.append('Num' + id)
+    header[-1] = "thingX"
+    cols.insert(0 , header)
+    with open('../etc/data/cols.csv' , 'w' , encoding='UTF8' , newline='') as f:
+        writer = csv.writer(f)
+        writer.writerows(cols)
+    return DATA('../etc/data/cols.csv')
+
 
 def repRows(t, rows):
     #TODO
@@ -390,7 +408,7 @@ def show(node, what, cols, nPlaces, lvl:int=None):
             show(node['right'], what, cols, nPlaces, lvl+1)
 
 def dofile(file):
-    #TODO: use regex to transfer the json in repgrid1.csv to a dict
+    #TODO: use regex to transfer the json in repgrid1.csv to a dict{[list]}
     raise NotImplemented
 
 
@@ -477,10 +495,8 @@ def last(t):
     return t[-1]
 
 def copy(t):
-    #TODO
     import copy
     return copy.deepcopy(t) # not sure if it works
-    raise NotImplementedError()
 
 
 
