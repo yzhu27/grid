@@ -399,12 +399,32 @@ def repRows(t, rows): #rows = cols.transpose
 
 
 def repPlace(data):
-    #TODO
-    raise NotImplementedError()
+    n = 20
+    g = {}
+    for i in range(1 , n+2):
+        g[i] = {}
+        for j in range(1 , n+2):
+            g[i][j] = ' '
+    maxy = 0
+    print('')
+    for r , row in data.rows.values():
+        c = chr(64 + r)
+        print(c , last(row.cells))
+        x,y= row.x*n//1, row.y*n//1
+        maxy = max(maxy,y+1)
+        g[y+1][x+1] = c
+    print('')
+    for y in range(1,maxy+1):
+        oo(g[y])
+
 
 def repgrid(sFile):
-    #TODO:
-    raise NotImplementedError()
+    t = dofile(sFile)
+    rows = repRows(t, transpose(t['cols'])) 
+    cols = repCols(t['cols'])
+    show(rows.cluster())
+    show(cols.cluster())
+    repPlace(rows) 
 
 def show(node, what, cols, nPlaces, lvl:int=None):
     if node:
@@ -419,9 +439,29 @@ def show(node, what, cols, nPlaces, lvl:int=None):
         if 'right' in node:
             show(node['right'], what, cols, nPlaces, lvl+1)
 
-def dofile(file):
-    #TODO: use regex to transfer the json in repgrid1.csv to a dict{[list]}
-    raise NotImplemented
+def dofile(file): #use regex to transfer repgrid1.csv to a dict{[list]}
+    fo = open(file , 'r')
+    res = []
+    cols = []
+    rows = []
+    for line in fo:
+        line = line.strip()
+        if line[0][0] == 'c' or line[0][0] == 'r':
+            line = line[5:]
+        line = line.strip(',')
+        line = line.replace(' ' , '')
+        line = line.replace("'" , '')
+        line = line.replace('{' , '')
+        line = line.replace('}' , '')
+        res.append(line.split(','))
+    fo.close()
+
+    cols = res[3:11]
+    rows = res[11:-1]
+    t = {}
+    t['rows'] = rows
+    t['cols'] = cols
+    return t
 
 
 
