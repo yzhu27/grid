@@ -223,6 +223,8 @@ class COLS:
 class ROW:
     def __init__(self, t):
         self.cells = t
+        self.x = None
+        self.y = None
 
 class DATA:
     def __init__(self , src):
@@ -295,6 +297,8 @@ class DATA:
             dic['row'] = row2
             dic['dist'] = self.dist(row1 , row2 , cols)
             return dic
+        rows = rows or self.rows
+        rows = rows[0]
         tmp = map(rows or self.rows , fun) #dic{dic{}}
         tmp = list(tmp.values()) # [dict]
         return sort(tmp , lt('dist')) 
@@ -305,18 +309,21 @@ class DATA:
 
         def project(row):
             dic = {}
+            x , y = cosine(dist(row , A) , dist(row , B) , c)
+            row.x = row.x or x
+            row.y = row.y or y
             dic['row'] = row
-            dic['dist'] = cosine(dist(row , A) , dist(row , B) , c)
+            dic['x'] = x
+            dic['y'] = y
             return dic
         
         rows = kwargs['rows'] if 'rows' in kwargs else self.rows
-        some = many(rows , the['Sample'])
-        A = kwargs['above'] if ('above' in kwargs and kwargs['above']) else any(some)
-        B = self.around(row1=A , rows=some)[int(the['Far'] * len(rows) // 1)]['row']
+        A = kwargs['above'] if ('above' in kwargs and kwargs['above']) else any(rows)
+        B = self.furthest(A , rows)['row']
         c = dist(A , B)
         left , right = {} , {}
-        for n , tmp in enumerate(sort(list(map(rows , project).values()) , lt('dist'))):
-            if n < len(rows) // 2:
+        for n , tmp in enumerate(sort(list(map(rows , project).values()) , lt('x'))):
+            if n <= len(rows) // 2:
                 push(left , tmp['row'])
                 mid = tmp['row']
             else:
@@ -326,14 +333,14 @@ class DATA:
     
     def cluster(self , **kwargs):
         rows = kwargs['rows'] if 'rows' in kwargs else self.rows
-        min = kwargs['min'] if 'min' in kwargs else len(rows) ** the['min']
+        #min = kwargs['min'] if 'min' in kwargs else len(rows) ** the['min']
         cols = kwargs['cols'] if 'cols' in kwargs else self.cols.x
         node = {}
         node['data'] = self.clone(rows)
-        if len(rows) > 2 * min:
-            left , right , node['A'] , node['B'] , node['mid'], _ = self.half(rows=rows , cols=cols , above=kwargs['above'] if 'above' in kwargs else None)
-            node['left'] = self.cluster(rows=left , min=min , cols=cols , above=node['A'])
-            node['right'] = self.cluster(rows=right , min=min , cols=cols , above=node['B'])
+        if len(rows) > 2: #* min
+            left , right , node['A'] , node['B'] , node['mid'], node['c'] = self.half(rows=rows , cols=cols , above=kwargs['above'] if 'above' in kwargs else None)
+            node['left'] = self.cluster(rows=left , cols=cols , above=node['A'])
+            node['right'] = self.cluster(rows=right , cols=cols , above=node['B'])
         return node
     
     def sway(self , **kwargs):
@@ -367,12 +374,12 @@ def transpose(t):
 def repCols(cols:list):
     newcols = copy(cols)
     for col in newcols:
-        col[-1] = col[0] + col[-1]
+        col[-1] = col[0] + ':' + col[-1]
         col.pop(0)
     header = []
-    for i in range(len(cols[0])):
+    for i in range(len(newcols[0])):
         id = i + 1
-        header.append('Num' + id)
+        header.append('Num' + str(id))
     header[-1] = "thingX"
     newcols.insert(0 , header)
     with open('../etc/data/cols.csv' , 'w' , encoding='UTF8' , newline='') as f:
@@ -426,18 +433,18 @@ def repgrid(sFile):
     show(cols.cluster())
     repPlace(rows) 
 
-def show(node, what, cols, nPlaces, lvl:int=None):
+def show(node, lvl:int=None):
     if node:
-        lvl = lvl if lvl is not None else 0
-        res = '| ' * lvl + str(len(node['data'].rows)) + '  '
-        if 'left' not in node or lvl == 0:
-            print(res + o(node['data'].stats("mid",node['data'].cols.y,nPlaces)))
+        lvl = lvl if lvl else 0
+        res = '|.. ' * lvl
+        if 'left' not in node:
+            print(res + o(last(last(node['data'].rows).cells)))
         else:
-            print(res)
-        if 'left' in node:
-            show(node['left'], what, cols, nPlaces, lvl+1)
-        if 'right' in node:
-            show(node['right'], what, cols, nPlaces, lvl+1)
+            print(res + fmt("%.f",rnd(100*node['c'])))
+        #if 'left' in node:
+            show(node['left'], lvl+1)
+        #if 'right' in node:
+            show(node['right'], lvl+1)
 
 def dofile(file): #use regex to transfer repgrid1.csv to a dict{[list]}
     fo = open(file , 'r')
@@ -544,7 +551,7 @@ def many(t, n):
     return u
 
 def last(t):
-    return t[-1]
+    return list(t.values())[-1]
 
 def copy(t):
     import copy
@@ -720,30 +727,53 @@ if __name__=='__main__':
     eg("num", "check nums", numfun)
     
     def repColsfun():
-        t = repCols(dofile(the.file).cols)
-        map(t.cols.all,oo) 
-        map(t.rows,oo) 
+        t = repCols(dofile(the['file'])['cols'])
+        #map(t.cols.all,oo)
+        id = 910
+        colres = ['{a:']
+        for col in t.cols.all.values():
+            colres = ['{a:']
+            if col.__class__.__name__ == 'NUM':  
+                colres = colres + [col.__class__.__name__ , ':at ' + str(col.at+1) , ':hi ' + str(col.hi) , ':id ' + str(id) , ':lo ' + str(col.lo) , ':m2 ' + str(round(col.m2 , 3)) , ':mu ' + str(round(col.mu , 3)) , ':n ' + str(col.n) , ':txt ' + str(col.txt) , ':w ' + str(col.w)]
+                colres = ' '.join(colres)
+                print(colres)
+            else:
+                colres = colres + [col.__class__.__name__ , ':at ' + str(col.at+1) , ':has ' + '{}' , ':id ' + str(id) , ':most ' + str(col.most) , ':n ' + str(col.n) , ':txt ' + col.txt]
+                colres = ' '.join(colres)
+                print(colres)
+            id += 1
+        
+        #map(t.rows,oo)
+        rowres = ['{a:']
+        for row in t.rows.values():
+            rowres = ['{a:']
+            tmp = list(row.cells.values())
+            for i in range(len(tmp)):
+                tmp[i] = str(tmp[i])
+            rowres += [row.__class__.__name__ , ':cells {'  + ' '.join(tmp) + '} ' + ':id ' + str(id)]
+            print(' '.join(rowres))
+            id += 1
     eg("repcols","checking repcols", repColsfun)
 
     def synonymsfun():
-        show(repCols( dofile(the.file).cols ).cluster())
+        show(repCols( dofile(the['file'])['cols'] ).cluster())
     eg("synonyms","checking repcols cluster", synonymsfun)
 
     def reprowsfun():
-        t = dofile(the.file)
+        t = dofile(the['file'])
         rows = repRows(t, transpose(t.cols))
         map(rows.cols.all,oo) 
         map(rows.rows,oo) 
     eg("reprows","checking reprows", reprowsfun)
 
     def prototypesfun():
-        t = dofile(the.file)
+        t = dofile(the['file'])
         rows = repRows(t, transpose(t.cols))
         show(rows.cluster())
     eg("prototypes","checking reprows cluster", prototypesfun)
 
     def positionfun():
-        t = dofile(the.file)
+        t = dofile(the['file'])
         rows = repRows(t, transpose(t.cols))
         rows.cluster()
         repPlace(rows)
@@ -751,7 +781,7 @@ if __name__=='__main__':
 
     def everyfun():
         global the
-        repgrid(the.file)
+        repgrid(the['file'])
     eg("every","the whole enchilada", everyfun)
 
 
