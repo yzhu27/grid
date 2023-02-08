@@ -188,7 +188,7 @@ class COLS:
             # all columns should be recorded in self.all, including those skipped columns
             # if the column starts with a capital character, it is Num
             # otherwise, it is Sym
-            if name.istitle():
+            if name[0].istitle():
                 curCol = push(self.all, NUM(index, name))
             else:
                 curCol = push(self.all, SYM(index, name))    
@@ -392,12 +392,12 @@ def repRows(t, rows): #rows = cols.transpose
     rows = copy(rows)
     for j , s in enumerate(rows[-1]):
         rows[0][j] = rows[0][j] + ':' + s
-    rows[-1] = None
+    rows.pop()
     for n , row in enumerate(rows):
         if n == 0:
             row.append('thingX')
         else:
-            u = t['rows'][len(t['rows']) - n + 2]
+            u = t['rows'][len(t['rows']) - n]
             row.append(u[-1])
     with open('../etc/data/rows.csv' , 'w' , encoding='UTF8' , newline='') as f:
         writer = csv.writer(f)
@@ -660,7 +660,32 @@ def cli(t, list):
                 t[slot] = coerce(v)
     return t
 
-
+def parse(t , id):
+    #map(t.cols.all,oo)
+    id = id
+    colres = ['{a:']
+    for col in t.cols.all.values():
+        colres = ['{a:']
+        if col.__class__.__name__ == 'NUM':  
+            colres = colres + [col.__class__.__name__ , ':at ' + str(col.at+1) , ':hi ' + str(col.hi) , ':id ' + str(id) , ':lo ' + str(col.lo) , ':m2 ' + str(round(col.m2 , 3)) , ':mu ' + str(round(col.mu , 3)) , ':n ' + str(col.n) , ':txt ' + str(col.txt) , ':w ' + str(col.w)]
+            colres = ' '.join(colres)
+            print(colres)
+        else:
+            colres = colres + [col.__class__.__name__ , ':at ' + str(col.at+1) , ':has ' + '{}' , ':id ' + str(id) , ':most ' + str(col.most) , ':n ' + str(col.n) , ':txt ' + col.txt]
+            colres = ' '.join(colres)
+            print(colres)
+        id += 1
+    
+    #map(t.rows,oo)
+    rowres = ['{a:']
+    for row in t.rows.values():
+        rowres = ['{a:']
+        tmp = list(row.cells.values())
+        for i in range(len(tmp)):
+            tmp[i] = str(tmp[i])
+        rowres += [row.__class__.__name__ , ':cells {'  + ' '.join(tmp) + '} ' + ':id ' + str(id)]
+        print(' '.join(rowres))
+        id += 1
 
 def main(options, help, funs, *k):
     saved = {}
@@ -728,31 +753,7 @@ if __name__=='__main__':
     
     def repColsfun():
         t = repCols(dofile(the['file'])['cols'])
-        #map(t.cols.all,oo)
-        id = 910
-        colres = ['{a:']
-        for col in t.cols.all.values():
-            colres = ['{a:']
-            if col.__class__.__name__ == 'NUM':  
-                colres = colres + [col.__class__.__name__ , ':at ' + str(col.at+1) , ':hi ' + str(col.hi) , ':id ' + str(id) , ':lo ' + str(col.lo) , ':m2 ' + str(round(col.m2 , 3)) , ':mu ' + str(round(col.mu , 3)) , ':n ' + str(col.n) , ':txt ' + str(col.txt) , ':w ' + str(col.w)]
-                colres = ' '.join(colres)
-                print(colres)
-            else:
-                colres = colres + [col.__class__.__name__ , ':at ' + str(col.at+1) , ':has ' + '{}' , ':id ' + str(id) , ':most ' + str(col.most) , ':n ' + str(col.n) , ':txt ' + col.txt]
-                colres = ' '.join(colres)
-                print(colres)
-            id += 1
-        
-        #map(t.rows,oo)
-        rowres = ['{a:']
-        for row in t.rows.values():
-            rowres = ['{a:']
-            tmp = list(row.cells.values())
-            for i in range(len(tmp)):
-                tmp[i] = str(tmp[i])
-            rowres += [row.__class__.__name__ , ':cells {'  + ' '.join(tmp) + '} ' + ':id ' + str(id)]
-            print(' '.join(rowres))
-            id += 1
+        parse(t , 910)
     eg("repcols","checking repcols", repColsfun)
 
     def synonymsfun():
@@ -761,9 +762,8 @@ if __name__=='__main__':
 
     def reprowsfun():
         t = dofile(the['file'])
-        rows = repRows(t, transpose(t.cols))
-        map(rows.cols.all,oo) 
-        map(rows.rows,oo) 
+        rows = repRows(t, transpose(t['cols']))
+        parse(rows , 931)
     eg("reprows","checking reprows", reprowsfun)
 
     def prototypesfun():
