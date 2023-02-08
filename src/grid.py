@@ -414,13 +414,14 @@ def repPlace(data):
             g[i][j] = ' '
     maxy = 0
     print('')
-    for r , row in data.rows.values():
-        c = chr(64 + r)
+    for r , row in enumerate(data.rows.values()):
+        c = chr(64 + r + 1)
         print(c , last(row.cells))
-        x,y= row.x*n//1, row.y*n//1
+        x,y= int(row.x*n//1), int(row.y*n//1)
         maxy = max(maxy,y+1)
         g[y+1][x+1] = c
     print('')
+    #print(maxy) --> 12
     for y in range(1,maxy+1):
         oo(g[y])
 
@@ -587,7 +588,7 @@ def o(t , *isKeys): #--> s; convert `t` to a string. sort named keys.
     def concat(tmp:dict):
         res = []
         for k , v in tmp.items():
-            res.append(':' + str(k))
+            #res.append(':' + str(k))
             res.append(v)
         return res
     return '{' + ' '.join(concat(tmp)) + '}'
@@ -768,13 +769,13 @@ if __name__=='__main__':
 
     def prototypesfun():
         t = dofile(the['file'])
-        rows = repRows(t, transpose(t.cols))
+        rows = repRows(t, transpose(t['cols']))
         show(rows.cluster())
     eg("prototypes","checking reprows cluster", prototypesfun)
 
     def positionfun():
         t = dofile(the['file'])
-        rows = repRows(t, transpose(t.cols))
+        rows = repRows(t, transpose(t['cols']))
         rows.cluster()
         repPlace(rows)
     eg("position","where's wally", positionfun)
