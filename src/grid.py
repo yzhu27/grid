@@ -323,7 +323,7 @@ class DATA:
         c = dist(A , B)
         left , right = {} , {}
         for n , tmp in enumerate(sort(list(map(rows , project).values()) , lt('x'))):
-            if n <= len(rows) // 2:
+            if n+1 <= (len(rows)+1) // 2:
                 push(left , tmp['row'])
                 mid = tmp['row']
             else:
@@ -337,7 +337,7 @@ class DATA:
         cols = kwargs['cols'] if 'cols' in kwargs else self.cols.x
         node = {}
         node['data'] = self.clone(rows)
-        if len(rows) > 2: #* min
+        if len(rows) >= 2: #* min
             left , right , node['A'] , node['B'] , node['mid'], node['c'] = self.half(rows=rows , cols=cols , above=kwargs['above'] if 'above' in kwargs else None)
             node['left'] = self.cluster(rows=left , cols=cols , above=node['A'])
             node['right'] = self.cluster(rows=right , cols=cols , above=node['B'])
@@ -728,13 +728,14 @@ if __name__=='__main__':
     #   return the.some.missing.nested.field end)
     def thefun():
         global the
-        return oo(the)
+        oo(the)
     eg("the","show settings", thefun)
 
     def copyfun():
         t1={'a':1,'b':{'c':2,'d':{0:3}}}
         t2 = copy(t1)
         t2['b']['d'][0]=10000
+        print("b4",str(t1),"\nafter",str(t2))
     eg("copy","check copy", copyfun)
 
 
