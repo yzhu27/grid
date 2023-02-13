@@ -47,11 +47,11 @@
 
 |          1 score | Model 1 |        Model 2         |   Model 3   | Model 4 |     Model 5      |    Model 6    | 5 score          |
 | ---------------: | :-----: | :--------------------: | :---------: | :-----: | :--------------: | :-----------: | :--------------- |
-| FamilyExperience |         |                        |             |         |                  |               | DriveExperience  |
-|  RideComfortable |         |                        |             |         |                  |               | DriveComfortable |
-|  ClassicInterior |         |                        |             |         |                  |               | TechInterior     |
-| ValuePreservable |         |                        |             |         |                  |               | HighTurnover     |
-|       YoungBuyer |         |                        |             |         |                  |               | ElderBuyer       |
-|   HighGasMileage |         |                        |             |         |                  |               | Quick0-60Time    |
+| FamilyExperience |    4    |           2            |      3      |    5    |        4         |       3       | DriveExperience  |
+|  RideComfortable |    4    |           3            |      3      |    5    |        4         |       4       | DriveComfortable |
+|  ClassicInterior |    3    |           3            |      3      |    4    |        2         |       5       | TechInterior     |
+| ValuePreservable |    3    |           3            |      2      |    4    |        4         |       3       | HighTurnover     |
+|       YoungBuyer |    1    |           4            |      3      |    1    |        2         |       3       | ElderBuyer       |
+|   HighGasMileage |    4    |           3            |      3      |    5    |        4         |       5       | Quick0-60Time    |
 |                  | Audi A7 | Land Rover Range Rover | Lexus IS350 | BMW M3  | Mazda MX-5 Miata | Tesla Model Y |                  |
 
