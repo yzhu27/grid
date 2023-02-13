@@ -1,0 +1,16 @@
+local _ = " "
+return {
+ domain="cars",
+ cols={       {'FamilyExperience', 5, 1, 3, 5, 5, 4, 'DriveExperience'},
+               {'RideComfortable', 4, 1, 3, 4, 4, 5, 'DriveComfortable'},
+               {'ClassicInterior', 2, 4, 3, 4, 1, 5, 'TechInterior'},
+             {'ValuePreservable' , 4, 4, 1, 2, 2, 3, 'HighTurnover'},
+                    {'YoungBuyer', 1, 5, 2, 1, 1, 2, 'ElderBuyer'},
+                {'HighGasMileage', 5, 1, 3, 4, 4, 5, 'Quick0-60Time'}},
+rows={                           { _, _, _, _, _,  'Tesla_Model_Y'},
+                                 { _, _, _, _,  'Mazda_MX-5_Miata'},
+                                 { _, _, _,  'BMW_M3'},
+                                 { _, _,  'Lexus_IS350'},
+                                 { _, 'Land_Rover_Range_Rover'},
+                                 {'Audi_A7'}}
+}

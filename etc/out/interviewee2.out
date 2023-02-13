@@ -1,0 +1,121 @@
+b4	{:a 1 :b {:c 2 :d {3}}}	
+after	{:a 1 :b {:c 2 :d {10000}}}
+✅ pass:	copy
+63
+|.. 36
+|.. |.. Lexus_IS350
+|.. |.. 31
+|.. |.. |.. Mazda_MX-5_Miata
+|.. |.. |.. BMW_M3
+|.. 80
+|.. |.. Land_Rover_Range_Rover
+|.. |.. 38
+|.. |.. |.. Audi_A7
+|.. |.. |.. Tesla_Model_Y
+69
+|.. 58
+|.. |.. ValuePreservable:HighTurnover
+|.. |.. 57
+|.. |.. |.. ClassicInterior:TechInterior
+|.. |.. |.. YoungBuyer:ElderBuyer
+|.. 22
+|.. |.. FamilyExperience:DriveExperience
+|.. |.. 10
+|.. |.. |.. RideComfortable:DriveComfortable
+|.. |.. |.. HighGasMileage:Quick0-60Time
+
+A	Audi_A7
+B	Land_Rover_Range_Rover
+C	Lexus_IS350
+D	BMW_M3
+E	Mazda_MX-5_Miata
+F	Tesla_Model_Y
+
+{C                       B                }
+{                                         }
+{                                         }
+{                                         }
+{                                         }
+{                                         }
+{D                                        }
+{E                                        }
+{                                         }
+{F                                        }
+{A                                        }
+✅ pass:	every
+✅ pass:	num
+
+A	Audi_A7
+B	Land_Rover_Range_Rover
+C	Lexus_IS350
+D	BMW_M3
+E	Mazda_MX-5_Miata
+F	Tesla_Model_Y
+
+{C                       B                }
+{                                         }
+{                                         }
+{                                         }
+{                                         }
+{                                         }
+{D                                        }
+{E                                        }
+{                                         }
+{F                                        }
+{A                                        }
+✅ pass:	position
+63
+|.. 36
+|.. |.. Lexus_IS350
+|.. |.. 31
+|.. |.. |.. Mazda_MX-5_Miata
+|.. |.. |.. BMW_M3
+|.. 80
+|.. |.. Land_Rover_Range_Rover
+|.. |.. 38
+|.. |.. |.. Audi_A7
+|.. |.. |.. Tesla_Model_Y
+✅ pass:	prototypes
+{:a NUM :at 1 :hi 5 :id 460 :lo 1 :m2 13.5 :mu 3.5 :n 6 :txt Num1 :w 1}
+{:a NUM :at 2 :hi 5 :id 461 :lo 1 :m2 17.333333333333 :mu 2.6666666666667 :n 6 :txt Num2 :w 1}
+{:a NUM :at 3 :hi 3 :id 462 :lo 1 :m2 3.5 :mu 2.5 :n 6 :txt Num3 :w 1}
+{:a NUM :at 4 :hi 5 :id 463 :lo 1 :m2 11.333333333333 :mu 3.3333333333333 :n 6 :txt Num4 :w 1}
+{:a NUM :at 5 :hi 5 :id 464 :lo 1 :m2 14.833333333333 :mu 2.8333333333333 :n 6 :txt Num5 :w 1}
+{:a NUM :at 6 :hi 5 :id 465 :lo 2 :m2 8.0 :mu 4.0 :n 6 :txt Num6 :w 1}
+{:a SYM :at 7 :has {} :id 466 :most 0 :n 0 :txt thingX}
+{:a ROW :cells {5 1 3 5 5 4 FamilyExperience:DriveExperience} :id 467}
+{:a ROW :cells {4 1 3 4 4 5 RideComfortable:DriveComfortable} :id 468}
+{:a ROW :cells {2 4 3 4 1 5 ClassicInterior:TechInterior} :id 469}
+{:a ROW :cells {4 4 1 2 2 3 ValuePreservable:HighTurnover} :id 470}
+{:a ROW :cells {1 5 2 1 1 2 YoungBuyer:ElderBuyer} :id 471}
+{:a ROW :cells {5 1 3 4 4 5 HighGasMileage:Quick0-60Time} :id 472}
+✅ pass:	repcols
+{:a NUM :at 1 :hi 5 :id 475 :lo 1 :m2 12.833333333333 :mu 3.8333333333333 :n 6 :txt FamilyExperience:DriveExperience :w 1}
+{:a NUM :at 2 :hi 5 :id 476 :lo 1 :m2 9.5 :mu 3.5 :n 6 :txt RideComfortable:DriveComfortable :w 1}
+{:a NUM :at 3 :hi 5 :id 477 :lo 1 :m2 10.833333333333 :mu 3.1666666666667 :n 6 :txt ClassicInterior:TechInterior :w 1}
+{:a NUM :at 4 :hi 4 :id 478 :lo 1 :m2 7.3333333333333 :mu 2.6666666666667 :n 6 :txt ValuePreservable:HighTurnover :w 1}
+{:a NUM :at 5 :hi 5 :id 479 :lo 1 :m2 12.0 :mu 2.0 :n 6 :txt YoungBuyer:ElderBuyer :w 1}
+{:a NUM :at 6 :hi 5 :id 480 :lo 1 :m2 11.333333333333 :mu 3.6666666666667 :n 6 :txt HighGasMileage:Quick0-60Time :w 1}
+{:a SYM :at 7 :has {} :id 481 :most 0 :n 0 :txt thingX}
+{:a ROW :cells {5 4 2 4 1 5 Audi_A7} :id 482}
+{:a ROW :cells {1 1 4 4 5 1 Land_Rover_Range_Rover} :id 483}
+{:a ROW :cells {3 3 3 1 2 3 Lexus_IS350} :id 484}
+{:a ROW :cells {5 4 4 2 1 4 BMW_M3} :id 485}
+{:a ROW :cells {5 4 1 2 1 4 Mazda_MX-5_Miata} :id 486}
+{:a ROW :cells {4 5 5 3 2 5 Tesla_Model_Y} :id 487}
+✅ pass:	reprows
+✅ pass:	sym
+62
+|.. 58
+|.. |.. ClassicInterior:TechInterior
+|.. |.. 43
+|.. |.. |.. ValuePreservable:HighTurnover
+|.. |.. |.. YoungBuyer:ElderBuyer
+|.. 22
+|.. |.. FamilyExperience:DriveExperience
+|.. |.. 10
+|.. |.. |.. RideComfortable:DriveComfortable
+|.. |.. |.. HighGasMileage:Quick0-60Time
+✅ pass:	synonyms
+{:dump false :file ../etc/data/interviewee2.csv :go all :help false :p 2 :seed 937162211}
+✅ pass:	the

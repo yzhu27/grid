@@ -1,0 +1,113 @@
+b4	{:a 1 :b {:c 2 :d {3}}}	
+after	{:a 1 :b {:c 2 :d {10000}}}
+✅ pass:	copy
+82
+|.. 47
+|.. |.. Lexus_IS350
+|.. |.. 57
+|.. |.. |.. Audi_A7
+|.. |.. |.. Land_Rover_Range_Rover
+|.. 50
+|.. |.. BMW_M3
+|.. |.. 54
+|.. |.. |.. Tesla_Model_Y
+|.. |.. |.. Mazda_MX-5_Miata
+74
+|.. 60
+|.. |.. ValuePreservable:HighTurnover
+|.. |.. 46
+|.. |.. |.. HighGasMileage:Quick0-60Time
+|.. |.. |.. FamilyExperience:DriveExperience
+|.. 76
+|.. |.. YoungBuyer:ElderBuyer
+|.. |.. 49
+|.. |.. |.. RideComfortable:DriveComfortable
+|.. |.. |.. ClassicInterior:TechInterior
+
+A	Audi_A7
+B	Land_Rover_Range_Rover
+C	Lexus_IS350
+D	BMW_M3
+E	Mazda_MX-5_Miata
+F	Tesla_Model_Y
+
+{C                               D        }
+{                                         }
+{                A                        }
+{                                         }
+{                                         }
+{B                 E                      }
+{                  F                      }
+✅ pass:	every
+✅ pass:	num
+
+A	Audi_A7
+B	Land_Rover_Range_Rover
+C	Lexus_IS350
+D	BMW_M3
+E	Mazda_MX-5_Miata
+F	Tesla_Model_Y
+
+{C                               D        }
+{                                         }
+{                A                        }
+{                                         }
+{                                         }
+{B                 E                      }
+{                  F                      }
+✅ pass:	position
+82
+|.. 47
+|.. |.. Lexus_IS350
+|.. |.. 57
+|.. |.. |.. Audi_A7
+|.. |.. |.. Land_Rover_Range_Rover
+|.. 50
+|.. |.. BMW_M3
+|.. |.. 54
+|.. |.. |.. Tesla_Model_Y
+|.. |.. |.. Mazda_MX-5_Miata
+✅ pass:	prototypes
+{:a NUM :at 1 :hi 4 :id 460 :lo 1 :m2 6.8333333333333 :mu 3.1666666666667 :n 6 :txt Num1 :w 1}
+{:a NUM :at 2 :hi 4 :id 461 :lo 2 :m2 2.0 :mu 3.0 :n 6 :txt Num2 :w 1}
+{:a NUM :at 3 :hi 3 :id 462 :lo 2 :m2 0.83333333333333 :mu 2.8333333333333 :n 6 :txt Num3 :w 1}
+{:a NUM :at 4 :hi 5 :id 463 :lo 1 :m2 12.0 :mu 4.0 :n 6 :txt Num4 :w 1}
+{:a NUM :at 5 :hi 4 :id 464 :lo 2 :m2 5.3333333333333 :mu 3.3333333333333 :n 6 :txt Num5 :w 1}
+{:a NUM :at 6 :hi 5 :id 465 :lo 3 :m2 4.8333333333333 :mu 3.8333333333333 :n 6 :txt Num6 :w 1}
+{:a SYM :at 7 :has {} :id 466 :most 0 :n 0 :txt thingX}
+{:a ROW :cells {4 2 3 5 4 3 FamilyExperience:DriveExperience} :id 467}
+{:a ROW :cells {4 3 3 5 4 4 RideComfortable:DriveComfortable} :id 468}
+{:a ROW :cells {3 3 3 4 2 5 ClassicInterior:TechInterior} :id 469}
+{:a ROW :cells {3 3 2 4 4 3 ValuePreservable:HighTurnover} :id 470}
+{:a ROW :cells {1 4 3 1 2 3 YoungBuyer:ElderBuyer} :id 471}
+{:a ROW :cells {4 3 3 5 4 5 HighGasMileage:Quick0-60Time} :id 472}
+✅ pass:	repcols
+{:a NUM :at 1 :hi 5 :id 475 :lo 2 :m2 5.5 :mu 3.5 :n 6 :txt FamilyExperience:DriveExperience :w 1}
+{:a NUM :at 2 :hi 5 :id 476 :lo 3 :m2 2.8333333333333 :mu 3.8333333333333 :n 6 :txt RideComfortable:DriveComfortable :w 1}
+{:a NUM :at 3 :hi 5 :id 477 :lo 2 :m2 5.3333333333333 :mu 3.3333333333333 :n 6 :txt ClassicInterior:TechInterior :w 1}
+{:a NUM :at 4 :hi 4 :id 478 :lo 2 :m2 2.8333333333333 :mu 3.1666666666667 :n 6 :txt ValuePreservable:HighTurnover :w 1}
+{:a NUM :at 5 :hi 4 :id 479 :lo 1 :m2 7.3333333333333 :mu 2.3333333333333 :n 6 :txt YoungBuyer:ElderBuyer :w 1}
+{:a NUM :at 6 :hi 5 :id 480 :lo 3 :m2 4.0 :mu 4.0 :n 6 :txt HighGasMileage:Quick0-60Time :w 1}
+{:a SYM :at 7 :has {} :id 481 :most 0 :n 0 :txt thingX}
+{:a ROW :cells {4 4 3 3 1 4 Audi_A7} :id 482}
+{:a ROW :cells {2 3 3 3 4 3 Land_Rover_Range_Rover} :id 483}
+{:a ROW :cells {3 3 3 2 3 3 Lexus_IS350} :id 484}
+{:a ROW :cells {5 5 4 4 1 5 BMW_M3} :id 485}
+{:a ROW :cells {4 4 2 4 2 4 Mazda_MX-5_Miata} :id 486}
+{:a ROW :cells {3 4 5 3 3 5 Tesla_Model_Y} :id 487}
+✅ pass:	reprows
+✅ pass:	sym
+71
+|.. 61
+|.. |.. ClassicInterior:TechInterior
+|.. |.. 84
+|.. |.. |.. YoungBuyer:ElderBuyer
+|.. |.. |.. HighGasMileage:Quick0-60Time
+|.. 49
+|.. |.. ValuePreservable:HighTurnover
+|.. |.. 29
+|.. |.. |.. RideComfortable:DriveComfortable
+|.. |.. |.. FamilyExperience:DriveExperience
+✅ pass:	synonyms
+{:dump false :file ../etc/data/interviewee3.csv :go all :help false :p 2 :seed 937162211}
+✅ pass:	the
