@@ -28,7 +28,7 @@
 |  ClassicInterior |    3    |           1            |      2      |    2    |        1         |       5       | TechInterior     |
 | ValuePreservable |    2    |           4            |      1      |    4    |        5         |       2       | HighTurnover     |
 |       YoungBuyer |    2    |           4            |      4      |    1    |        1         |       3       | ElderBuyer       |
-|   HighGasMileage |    1    |           3            |      4      |    3    |        4         |       5       | Quick0-60Time    |
+|   HighGasMileage |    2    |           1            |      2      |    3    |        4         |       5       | Quick0-60Time    |
 |                  | Audi A7 | Land Rover Range Rover | Lexus IS350 | BMW M3  | Mazda MX-5 Miata | Tesla Model Y |                  |
 
 #### Interviewee 2
