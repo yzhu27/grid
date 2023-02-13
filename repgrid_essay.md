@@ -23,12 +23,12 @@
 #### Interviewee 1
 |          1 score | Model 1 |        Model 2         |   Model 3   | Model 4 |     Model 5      |    Model 6    | 5 score          |
 | ---------------: | :-----: | :--------------------: | :---------: | :-----: | :--------------: | :-----------: | :--------------- |
-| FamilyExperience |         |                        |             |         |                  |               | DriveExperience  |
-|  RideComfortable |         |                        |             |         |                  |               | DriveComfortable |
-|  ClassicInterior |         |                        |             |         |                  |               | TechInterior     |
-| ValuePreservable |         |                        |             |         |                  |               | HighTurnover     |
-|       YoungBuyer |         |                        |             |         |                  |               | ElderBuyer       |
-|   HighGasMileage |         |                        |             |         |                  |               | Quick0-60Time    |
+| FamilyExperience |    4    |           2            |      1      |    3    |        5         |       2       | DriveExperience  |
+|  RideComfortable |    4    |           5            |      1      |    4    |        5         |       3       | DriveComfortable |
+|  ClassicInterior |    3    |           1            |      2      |    2    |        1         |       5       | TechInterior     |
+| ValuePreservable |    2    |           4            |      1      |    4    |        5         |       2       | HighTurnover     |
+|       YoungBuyer |    2    |           4            |      4      |    1    |        1         |       3       | ElderBuyer       |
+|   HighGasMileage |    1    |           3            |      4      |    3    |        4         |       5       | Quick0-60Time    |
 |                  | Audi A7 | Land Rover Range Rover | Lexus IS350 | BMW M3  | Mazda MX-5 Miata | Tesla Model Y |                  |
 
 #### Interviewee 2
