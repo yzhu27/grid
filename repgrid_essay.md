@@ -28,18 +28,18 @@
 |  ClassicInterior |    3    |           1            |      2      |    2    |        1         |       5       | TechInterior     |
 | ValuePreservable |    2    |           4            |      1      |    4    |        5         |       2       | HighTurnover     |
 |       YoungBuyer |    2    |           4            |      4      |    1    |        1         |       3       | ElderBuyer       |
-|   HighGasMileage |    2    |           1            |      2      |    3    |        4         |       5       | Quick0-60Time    |
+|   HighGasMileage |    1    |           3            |      4      |    3    |        4         |       5       | Quick0-60Time    |
 |                  | Audi A7 | Land Rover Range Rover | Lexus IS350 | BMW M3  | Mazda MX-5 Miata | Tesla Model Y |                  |
 
 #### Interviewee 2
 |          1 score | Model 1 |        Model 2         |   Model 3   | Model 4 |     Model 5      |    Model 6    | 5 score          |
 | ---------------: | :-----: | :--------------------: | :---------: | :-----: | :--------------: | :-----------: | :--------------- |
-| FamilyExperience |         |                        |             |         |                  |               | DriveExperience  |
-|  RideComfortable |         |                        |             |         |                  |               | DriveComfortable |
-|  ClassicInterior |         |                        |             |         |                  |               | TechInterior     |
-| ValuePreservable |         |                        |             |         |                  |               | HighTurnover     |
-|       YoungBuyer |         |                        |             |         |                  |               | ElderBuyer       |
-|   HighGasMileage |         |                        |             |         |                  |               | Quick0-60Time    |
+| FamilyExperience |    5    |           1            |      3      |    5    |        5         |        4      | DriveExperience  |
+|  RideComfortable |    4    |           1            |      3      |    4    |        4         |        5      | DriveComfortable |
+|  ClassicInterior |    2    |           4            |      3      |    4    |        1         |        5      | TechInterior     |
+| ValuePreservable |    4    |           4            |      1      |    2    |        2         |        3      | HighTurnover     |
+|       YoungBuyer |    1    |           5            |      2      |    1    |        1         |        2      | ElderBuyer       |
+|   HighGasMileage |    5    |           1            |      3      |    4    |        4         |        5      | Quick0-60Time    |
 |                  | Audi A7 | Land Rover Range Rover | Lexus IS350 | BMW M3  | Mazda MX-5 Miata | Tesla Model Y |                  |
 
 
