@@ -25,6 +25,8 @@ Since this work is based on previous HWs, we do not explain details, in order to
 
 Specifically, there is a small-survey with 3 candidates. The general report is [here](https://github.com/yzhu27/grid/blob/main/repgrid_essay.md):
 
+![result img](./etc/images/report.png)
+
 As for each interviewee, the inputs and reports are here:
 
 Interviewee 1:
