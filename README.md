@@ -17,7 +17,9 @@ Since this work is based on previous HWs, we do not explain details, in order to
 
 ![result img](./etc/images/result.png)
 
-Specifically, the result of each
+Specifically, there is a small-survey with 3 candidates. The general result is here:
+
+As for each respondant, the reports are here:
 
 ## Contributors:
 * Jiayuan Huang [jhuang52]
