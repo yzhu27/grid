@@ -9,17 +9,30 @@
 Since this work is based on previous HWs, we do not explain details, in order to make it clear enough.
 
 ## Result:
-* [Expected result](https://github.com/timm/tested/blob/main/etc/out/cluster.out):
+* [Expected result](https://github.com/timm/tested/blob/main/etc/out/grid.out):
 
-![result img](./etc/images/expected_result.png)
+(the result is too long to have a screen capture)
 
-* [Result](https://github.com/yzhu27/cluster/blob/main/etc/out/cluster.out):
+* [Result](https://github.com/yzhu27/grid/blob/main/etc/out/grid.out):
 
-![result img](./etc/images/result.png)
+(same reason)
 
-Specifically, there is a small-survey with 3 candidates. The general result is here:
+Specifically, there is a small-survey with 3 candidates. The general result is [here](https://github.com/yzhu27/grid/blob/main/repgrid_essay.md):
 
-As for each respondant, the reports are here:
+As for each interviewee, the inputs and reports are here:
+
+Interviewee 1:
+[Questionnaire:](https://github.com/yzhu27/grid/blob/main/etc/data/interviewee1.csv)
+[Output:](https://github.com/yzhu27/grid/blob/main/etc/out/interviewee1.out)
+
+Interviewee 2:
+[Questionnaire:](https://github.com/yzhu27/grid/blob/main/etc/data/interviewee2.csv)
+[Output:](https://github.com/yzhu27/grid/blob/main/etc/out/interviewee2.out)
+
+Interviewee 3:
+[Questionnaire:](https://github.com/yzhu27/grid/blob/main/etc/data/interviewee3.csv)
+[Output:](https://github.com/yzhu27/grid/blob/main/etc/out/interviewee3.out)
+
 
 ## Contributors:
 * Jiayuan Huang [jhuang52]
