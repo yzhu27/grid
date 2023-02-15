@@ -22,16 +22,16 @@ Specifically, there is a small-survey with 3 candidates. The general result is [
 As for each interviewee, the inputs and reports are here:
 
 Interviewee 1:
-[Questionnaire:](https://github.com/yzhu27/grid/blob/main/etc/data/interviewee1.csv)
-[Output:](https://github.com/yzhu27/grid/blob/main/etc/out/interviewee1.out)
+![Questionnaire](https://github.com/yzhu27/grid/blob/main/etc/data/interviewee1.csv)
+![Output](https://github.com/yzhu27/grid/blob/main/etc/out/interviewee1.out)
 
 Interviewee 2:
-[Questionnaire:](https://github.com/yzhu27/grid/blob/main/etc/data/interviewee2.csv)
-[Output:](https://github.com/yzhu27/grid/blob/main/etc/out/interviewee2.out)
+![Questionnaire](https://github.com/yzhu27/grid/blob/main/etc/data/interviewee2.csv)
+![Output](https://github.com/yzhu27/grid/blob/main/etc/out/interviewee2.out)
 
 Interviewee 3:
-[Questionnaire:](https://github.com/yzhu27/grid/blob/main/etc/data/interviewee3.csv)
-[Output:](https://github.com/yzhu27/grid/blob/main/etc/out/interviewee3.out)
+![Questionnaire](https://github.com/yzhu27/grid/blob/main/etc/data/interviewee3.csv)
+![Output](https://github.com/yzhu27/grid/blob/main/etc/out/interviewee3.out)
 
 
 ## Contributors:
